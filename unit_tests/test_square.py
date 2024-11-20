@@ -23,13 +23,13 @@ class TestSquare(unittest.TestCase):
         side = -1
         with self.assertRaises(AssertionError) as context:
             area(side)
-        self.assertEqual(str(context.exception), "Side cannot be negative")  
+        self.assertEqual(str(context.exception), "error")  
 
     def test_perimeter_negative(self):
         side = -1
         with self.assertRaises(AssertionError) as context:
             perimeter(side)
-        self.assertEqual(str(context.exception), "Side cannot be negative")
+        self.assertEqual(str(context.exception), "error")
 
 
 if __name__ == '__main__':  

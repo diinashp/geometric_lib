@@ -3,7 +3,7 @@ from math import pi
 from circle import area, perimeter
 
 
-class TestSquare(unittest.TestCase):
+class TestCircle(unittest.TestCase):
     def test_area(self):
         radius = 1
         res = area(radius)
@@ -35,5 +35,5 @@ class TestSquare(unittest.TestCase):
             perimeter(radius)
 
 
-if name == '__main__':
+if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,5 @@
 from calculate import calc
-from math import *
+import math
 import unittest
 
 

@@ -1,5 +1,6 @@
 from calculate import calc
 from math import *
+import unittest
 
 
 class TestCalculate(unittest.TestCase):

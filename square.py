@@ -1,4 +1,3 @@
-
 def area(a):
     if a < 0:
         raise AssertionError("error")

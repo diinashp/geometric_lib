@@ -34,5 +34,5 @@ class TestSquare(unittest.TestCase):
             self.assertRaises(AssertionError)
 
 
-if name == "main":
+if name == '__main__':
     unittest.main()

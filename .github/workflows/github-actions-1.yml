@@ -1,26 +1,42 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions
-on: [push]
+name: Tests Workflow
+
+on:
+  push:
+    branches:
+      - master
+      - release
+  pull_request:
+    branches:
+      - master
+      - release
+      - develop
+
 jobs:
-  Explore-GitHub-Actions:
+  test:
     runs-on: ubuntu-latest
-    env: 
+    env:
       FULL_NAME: "Shpakova Diana Olegovna"
       GROUP_NUMBER: "M3117"
-      NICKNAME_GITHUB: "diinashp"
+
     steps:
-      - name: Output information to console
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Print information
         run: |
           echo "Full Name: ${{ env.FULL_NAME }}"
-          echo "Group: ${{ env.GROUP_NUMBER }}"
-          echo "GitHub Nick: ${{ github.actor }}"
-      - name: Installing Python 3.13
-        uses: actions/setup-python@v4        
+          echo "Group Name ${{ env.GROUP_NUMBER }}"
+          echo "Nickname Github: ${{ github.actor }}"
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.13'
+          python-version: 3.13
+
       - name: Run unit tests
         run: |
-          python -m unittest discover -s geometric_lib/unit_tests
+          python -m unittest discover -s /home/runner/work/geometric_lib/geometric_lib/tests
+
       - name: Lint code with flake8
         run: |
           pip install flake8

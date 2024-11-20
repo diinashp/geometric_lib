@@ -1,4 +1,3 @@
-
 import unittest
 from triangle import area, perimeter
 
@@ -35,5 +34,5 @@ class TestTriangle(unittest.TestCase):
             perimeter(x, y, z)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

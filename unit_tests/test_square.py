@@ -1,5 +1,6 @@
 import unittest
-from square import area, perimeter 
+from square import area, perimeter
+
 
 class TestSquare(unittest.TestCase):
     def test_area_positive(self):
@@ -22,7 +23,7 @@ class TestSquare(unittest.TestCase):
         side = -1
         with self.assertRaises(AssertionError) as context:
             area(side)
-        self.assertEqual(str(context.exception), "error")  
+        self.assertEqual(str(context.exception), "error")
 
     def test_perimeter_negative(self):
         side = -1
@@ -31,5 +32,5 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(str(context.exception), "error")
 
 
-if __name__ == '__main__':  
+if __name__ == "__main__":
     unittest.main()

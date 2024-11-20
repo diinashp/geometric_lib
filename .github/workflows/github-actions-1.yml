@@ -35,7 +35,7 @@ jobs:
 
       - name: Run unit_tests
         run: |
-          python3 -m unittest unit_test.test_calculate
+          python -m unittest unit_test
       - name: Lint code with flake8
         run: |
           pip install flake8

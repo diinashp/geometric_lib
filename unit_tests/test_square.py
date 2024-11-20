@@ -1,33 +1,28 @@
+from square import perimetr, area
 import unittest
-import math
-import sys
-sys.path.append("..")
 
-from square import area, perimeter
+class SquareTest(unittest.TestCase):
 
-class SquareTestCase(unittest.TestCase):
+    def test_area_Square_Five(self):
+        res = area(5)
+        self.assertEqual(res, 25)
 
-    def test_zero_side(self):
-        radius = 0
-        predicted_area = 0
-        predicted_perimeter = 0
+    def test_area_Square_Seven(self):
+        res = area(7)
+        self.assertEqual(res, 49)
 
-        self.assertEqual(area(radius), predicted_area)
-        self.assertEqual(perimeter(radius), predicted_perimeter)
+    def test_area_Square_Nine(self):
+        res = area(9)
+        self.assertEqual(res, 81)
 
-    def test_positive_side(self):
-        radius = 1
-        predicted_area = 1
-        predicted_perimeter = 4
+    def test_perimeter_Square_Two(self):
+        res = area(2)
+        self.assertEqual(res, 8)
 
-        self.assertEqual(area(radius), predicted_area)
-        self.assertEqual(perimeter(radius), predicted_perimeter)
+    def test_perimeter_Square_MinusSeven(self):
+        res = area(-7)
+        self.assertEqual(res, "ERROR")
 
-    def test_negative_side(self):
-        radius = -1
-
-        with self.assertRaises(TypeError):
-            area(radius)
-
-        with self.assertRaises(TypeError):
-            perimeter(radius)
+    def test_perimeter_Square_Sixth(self):
+        res = area(6)
+        self.assertEqual(res, 24)

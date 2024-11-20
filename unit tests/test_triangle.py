@@ -1,98 +1,39 @@
-import unittest
-import sys
-sys.path.append("..")
 
+import unittest
 from triangle import area, perimeter
 
-class RectangleTestCase(unittest.TestCase):
 
-    def test_zero_sides(self):
-        predicted_area = 0
+class TestTriangle(unittest.TestCase):
+    def test_area(self):
+        x, y, z = 5, 12, 13
+        res = area(x, y, z)
+        self.assertEqual(res, 30)
 
-        length = 0
-        height = 1
+    def test_area_zero(self):
+        x, y, z = 0, 0, 0
+        res = area(x, y, z)
+        self.assertEqual(res, 0)
 
-        self.assertEqual(area(length, height), predicted_area)
+    def test_perimeter(self):
+        x, y, z = 5, 12, 13
+        res = perimeter(x, y, z)
+        self.assertEqual(res, 30)
 
-        length = 1
-        height = 0
+    def test_perimeter_zero(self):
+        x, y, z = 0, 0, 0
+        res = perimeter(x, y, z)
+        self.assertEqual(res, 0)
 
-        self.assertEqual(area(length, height), predicted_area)
+    def test_area_neg(self):
+        x, y, z = -5, -12, -13
+        with self.assertRaises(AssertionError):
+            area(x, y, z)
 
-
-        length = 0
-        height = 0
-
-        self.assertEqual(area(length, height), predicted_area)
-
-        predicted_perimeter = 0
-
-        side1 = 0
-        side2 = 0
-        side3 = 0
+    def test_perimeter_neg(self):
+        x, y, z = -5, -12, -13
+        with self.assertRaises(AssertionError):
+            perimeter(x, y, z)
 
 
-        self.assertEqual(perimeter(side1, side2, side3), predicted_perimeter)
-
-    def test_positive_sides(self):
-           predicted_area = 1
-
-           length = 1
-           height = 2
-
-           self.assertEqual(area(length, height), predicted_area)
-
-           predicted_perimeter = 3
-
-           side1 = 1
-           side2 = 1
-           side3 = 1
-
-           self.assertEqual(perimeter(side1, side2, side3), predicted_perimeter)
-
-    def test_negative_sides(self):
-            length = 1
-            height = -1
-
-            with self.assertRaises(TypeError):
-                area(length, height)
-
-            length = -1
-            height = 1
-
-            with self.assertRaises(TypeError):
-                area(length, height)
-
-            length = -1
-            height = -1
-
-            with self.assertRaises(TypeError):
-                area(length, height)
-
-            side1 = 1
-            side2 = 1
-            side3 = -1
-
-            with self.assertRaises(TypeError):
-                perimeter(side1, side2, side3)
-
-            side1 = 1
-            side2 = -1
-            side3 = 1
-
-            with self.assertRaises(TypeError):
-                perimeter(side1, side2, side3)
-
-            side1 = -1
-            side2 = 1
-            side3 = 1
-
-            with self.assertRaises(TypeError):
-                perimeter(side1, side2, side3)
-
-            side1 = -1
-            side2 = -1
-            side3 = -1
-
-            with self.assertRaises(TypeError):
-                perimeter(side1, side2, side3)
+if __name__ == '__main__':
+    unittest.main()

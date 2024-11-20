@@ -1,33 +1,39 @@
-import unittest #для написания и запуска модульных тестов
-import math #для использования math.pi
-import sys #для управления средой выполнения Python (в частности, добавления каталога в путь Python)
-sys.path.append("..") #родительский каталог позволяет коду импортировать модуль circle
-
+import unittest
+from math import pi
 from circle import area, perimeter
 
-class CircleTestCase(unittest.TestCase):
 
-    def test_zero_radius(self):
-        radius = 0
-        predicted_area = 0
-        predicted_perimeter = 0
-
-        self.assertEqual(area(radius), predicted_area)
-        self.assertEqual(perimeter(radius), predicted_perimeter)
-
-    def test_positive_radius(self):
+class TestCircle(unittest.TestCase):
+    def test_area(self):
         radius = 1
-        predicted_area = math.pi
-        predicted_perimeter = 2 * math.pi
+        res = area(radius)
+        self.assertEqual(res, pi)
 
-        self.assertEqual(area(radius), predicted_area)
-        self.assertEqual(perimeter(radius), predicted_perimeter)
+    def test_perimeter(self):
+        radius = 1
+        res = perimeter(radius)
+        self.assertEqual(res, 2 * pi)
 
-    def test_negative_radius_area(self):
+    def test_area_zero(self):
+        radius = 0
+        res = area(radius)
+        self.assertEqual(res, 0)
+
+    def test_perimeter_zero(self):
+        radius = 0
+        res = perimeter(radius)
+        self.assertEqual(res, 0)
+
+    def test_area_neg(self):
         radius = -1
-
-        with self.assertRaises(TypeError):
+        with self.assertRaises(AssertionError):
             area(radius)
 
-        with self.assertRaises(TypeError):
+    def test_perimeter_neg(self):
+        radius = -1
+        with self.assertRaises(AssertionError):
             perimeter(radius)
+
+
+if __name__ == '__main__':
+    unittest.main()

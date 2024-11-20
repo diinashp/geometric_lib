@@ -1,6 +1,5 @@
 import unittest
-from square import area, perimeter  # Assuming your square module is named square.py
-
+from square import area, perimeter 
 
 class TestSquare(unittest.TestCase):
     def test_area_positive(self):

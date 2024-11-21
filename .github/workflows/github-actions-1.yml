@@ -17,6 +17,7 @@ jobs:
     env:
       FULL_NAME: "Shpakova Diana Olegovna"
       GROUP_NUMBER: "M3117"
+      NICKNAME_GITHUB: "diinashp"
 
     steps:
       - name: Checkout repository

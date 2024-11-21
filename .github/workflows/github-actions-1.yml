@@ -3,7 +3,7 @@ name: Tests Workflow
 on:
   push:
     branches:
-      - main
+      - unit_tests
       - release
   pull_request:
     branches:

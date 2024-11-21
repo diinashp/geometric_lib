@@ -1,5 +1,5 @@
 from calculate import calc
-import math
+from math import pi
 import unittest
 
 
@@ -9,7 +9,7 @@ class TestCalculate(unittest.TestCase):
         func = "area"
         size = [1]
         res = calc(fig, func, size)
-        self.assertEqual(res, pi)
+        self.assertEqual(res, math.pi)
 
     def test_square_area(self):
         fig = "square"
@@ -30,7 +30,7 @@ class TestCalculate(unittest.TestCase):
         func = "perimeter"
         size = [1]
         res = calc(fig, func, size)
-        self.assertEqual(res, 2 * pi)
+        self.assertEqual(res, 2 * math.pi)
 
     def test_square_perimeter(self):
         fig = "square"

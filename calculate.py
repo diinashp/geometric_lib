@@ -39,10 +39,10 @@ if __name__ == "__main__":
     size = []
 
     while fig not in figs:
-        fig = input(f"Enter figure name, available are {figs}:\n")
+        fig = input(f"Enter figure name, available are {figs}: \n")
 
     while func not in funcs:
-        func = input(f"Enter function name, available are {funcs}:\n")
+        func = input(f"Enter function name, available are {funcs}: \n")
 
     while len(size) != sizes.get(f"{fig}-{func}", 1):
         size = list(

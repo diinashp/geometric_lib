@@ -2,13 +2,12 @@ import math
 
 
 def area(r):
-"""принимает число r, возвращает площадь окружности радиусом r"""
+    if r < 0:
+        raise AssertionError("error")
     return math.pi * r * r
 
 
 def perimeter(r):
-
-"""принимает число r, возвращает периметр круга радиусом r"""
-
+    if r < 0:
+        raise AssertionError("error")
     return 2 * math.pi * r
-

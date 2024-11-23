@@ -1,9 +1,10 @@
-
 def area(a):
-"""принимает число a, возвращает площадь квадрата с длиной стороны a"""
+    if a < 0:
+        raise AssertionError("error")
     return a * a
 
 
 def perimeter(a):
-"""принимает число a, возвращает периметр квадрата с длиной стороны a"""
+    if a < 0:
+        raise AssertionError("error")
     return 4 * a
